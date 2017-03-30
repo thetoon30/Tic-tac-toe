@@ -17,7 +17,7 @@ namespace TicTacToe
                                             .First(p => _layout[p].Equals('\0'));
             _layout[firstUnoccupied] = 'O';
 
-            return string.Empty;
+            return "Player wins!";
         }
 
         public char GetPosition(int position)
