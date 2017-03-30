@@ -38,12 +38,25 @@ namespace TicTacToe.Tests
             //Arrange phase is empty: testing static method to initialize
 
             //Act
-            var isPosition = Enumerable.Range(1, 9)
-                              .Any(position => _game.GetPosition(position)
-                              .Equals('O'));
+            char[] positions = new char[2];
+            bool gamePositionFound = false;
+
+            for (int i = 0; i < 2; i++)
+            {
+                positions[i] = _game.GetPosition(i + 1);
+            }
+
+            for (int i = 0; i < 9; i++)
+            {
+                if (positions[i].Equals('O'))
+                {
+                    gamePositionFound = true;
+                    break;
+                }
+            }
 
             //Assert
-            Assert.IsTrue(isPosition);
+            Assert.IsTrue(gamePositionFound);
         }
     }
 }
