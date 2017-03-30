@@ -8,5 +8,14 @@ namespace TicTacToe
 {
     public class Game
     {
+        public void ChoosePosition(int position)
+        {
+            throw new NotImplementedException();
+        }
+
+        public double GetPosition(int position)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
