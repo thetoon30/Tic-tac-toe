@@ -8,16 +8,17 @@ namespace TicTacToe
 {
     public class Game
     {
-        char _layout;
+        char[] _layout = new char[2];
 
         public void ChoosePosition(int position)
         {
-            _layout = 'X';
+            _layout[position - 1] = 'X';
+            _layout[1] = 'O';
         }
 
         public char GetPosition(int position)
         {
-            return _layout;
+            return _layout[position - 1];
         }
     }
 }
