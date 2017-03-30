@@ -10,12 +10,12 @@ namespace TicTacToe
     {
         public void ChoosePosition(int position)
         {
-            throw new NotImplementedException();
+            
         }
 
-        public double GetPosition(int position)
+        public char GetPosition(int position)
         {
-            throw new NotImplementedException();
+            return 'X';
         }
     }
 }
