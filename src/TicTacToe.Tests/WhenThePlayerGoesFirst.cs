@@ -14,5 +14,11 @@ namespace TicTacToe.Tests
             game.ChoosePosition(1);
             Assert.AreEqual('X', game.GetPosition(1));
         }
+
+        [Test]
+        public void It_Should_Make_The_Next_Move()
+        {
+            
+        }
     }
 }
