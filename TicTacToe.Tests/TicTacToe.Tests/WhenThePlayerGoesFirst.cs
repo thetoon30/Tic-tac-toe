@@ -4,10 +4,10 @@ using NUnit.Framework;
 namespace TicTacToe.Tests
 {
     [TestFixture]
-    public class UnitTest1
+    public class When_The_Player_Goes_First
     {
         [Test]
-        public void TestMethod1()
+        public void It_Should_Put_Their_Choice_In_The_Selected_Position()
         {
         }
     }
