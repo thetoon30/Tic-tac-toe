@@ -8,7 +8,7 @@ namespace TicTacToe
 {
     public class Game
     {
-        char[] _layout = new char[2];
+        char[] _layout = new char[9];
 
         public string ChoosePosition(int position)
         {
