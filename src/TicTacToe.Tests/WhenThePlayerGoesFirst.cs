@@ -25,7 +25,17 @@ namespace TicTacToe.Tests
         [Test]
         public void It_Should_Make_The_Next_Move()
         {
-            
+            //Arrange
+            var game = new Game();
+
+            //Act
+            game.ChoosePosition(1);
+            var isPosition = Enumerable.Range(1, 9)
+                              .Any(position => game.GetPosition(position)
+                              .Equals('O'));
+
+            //Assert
+            Assert.IsTrue(isPosition);
         }
     }
 }
