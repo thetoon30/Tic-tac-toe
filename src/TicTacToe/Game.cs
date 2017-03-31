@@ -30,28 +30,39 @@ namespace TicTacToe
                                             .First(p => _layout[p].Equals('\0'));
             _layout[firstUnoccupied] = 'O';
 
-            string layoutAsString = new string(_layout).Replace('O', '\0');
-
-            foreach (string pattern in _winningPatterns)
+            if (WinningPlayerIs('X'))
             {
-                if (Regex.IsMatch(layoutAsString, pattern))
-                {
-                    return "Player wins!";
-                }   
+                return "Player wins!";
             }
-
-            layoutAsString = new string(_layout).Replace('X', '\0');
-
-            foreach (string pattern in _winningPatterns)
+                
+            if (WinningPlayerIs('O'))
             {
-                if (Regex.IsMatch(layoutAsString, pattern))
-                {
-                    return "Game wins.";
-                }   
+                return "Game wins.";
             }
-
 
             return string.Empty;
+        }
+
+        private bool WinningPlayerIs(char player)
+        {
+            var layout = new string(_layout);
+
+            if (player == 'X')
+            {
+                layout = layout.Replace('O', '\0');
+            } 
+            else
+            {
+                layout = layout.Replace('X', '\0');
+            }
+
+            foreach (string pattern in _winningPatterns)
+            {
+                if (Regex.IsMatch(layout, pattern))
+                    return true;
+            }
+
+            return false;
         }
 
         public char GetPosition(int position)
