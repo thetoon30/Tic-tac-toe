@@ -14,9 +14,9 @@ namespace TicTacToe.Tests
             Game game = new Game();
 
             //Act
-            game.ChoosePosition(1);
-            game.ChoosePosition(2);
-            string message = game.ChoosePosition(3);
+            game.ChoosePosition(4);
+            game.ChoosePosition(5);
+            string message = game.ChoosePosition(6);
 
             //Assert
             Assert.AreEqual("Player wins!", message);
