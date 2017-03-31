@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace TicTacToe
@@ -10,6 +11,18 @@ namespace TicTacToe
     {
         char[] _layout = new char[9];
 
+        readonly string[] _winningXPatterns = new[]
+                                                 {
+                                                     "XXX......",
+                                                     "...XXX...",
+                                                     "......XXX",
+                                                     "X..X..X..",
+                                                     ".X..X..X.",
+                                                     "..X..X..X",
+                                                     "X...X...X",
+                                                     "..X.X.X..",
+                                                 };
+
         public string ChoosePosition(int position)
         {
             _layout[position - 1] = 'X';
@@ -17,9 +30,12 @@ namespace TicTacToe
                                             .First(p => _layout[p].Equals('\0'));
             _layout[firstUnoccupied] = 'O';
 
-            if (new string(_layout.ToArray()).StartsWith("XXX"))
+            var layoutAsString = new string(_layout);
+
+            foreach (string pattern in _winningXPatterns)
             {
-                return "Player wins!";
+                if (Regex.IsMatch(layoutAsString, pattern))
+                    return "Player wins!";
             }
 
             if (new string(_layout.ToArray()).StartsWith("OOO"))
