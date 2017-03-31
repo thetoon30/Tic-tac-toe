@@ -45,9 +45,7 @@ namespace TicTacToe
 
         private bool WinningPlayerIs(char player)
         {
-            var layout = new string(_layout.ToList()
-                                        .Select(c => (c.Equals(player)) ? player : '\0')
-                                        .ToArray());
+            var layout = GetLayoutFor(player);
 
             foreach (string pattern in _winningPatterns)
             {
@@ -58,6 +56,13 @@ namespace TicTacToe
             }
 
             return false;
+        }
+
+        private string GetLayoutFor(char player)
+        {
+            return new string(_layout.ToList()
+                                  .Select(c => (c.Equals(player)) ? player : '\0')
+                                  .ToArray());
         }
 
         public char GetPosition(int position)
