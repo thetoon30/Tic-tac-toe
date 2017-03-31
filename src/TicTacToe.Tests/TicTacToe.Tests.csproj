@@ -54,6 +54,7 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="WhenThePlayerAttemptsToSelectAnInvalidPosition.cs" />
     <Compile Include="WhenThePlayerAttemptsToSelectAnOccupiedPosition.cs" />
     <Compile Include="WhenThePlayerGetsThreeInARow.cs" />
     <Compile Include="WhenThePlayerGoesFirst.cs" />

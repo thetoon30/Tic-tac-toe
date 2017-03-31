@@ -10,9 +10,14 @@ namespace TicTacToe.Tests
         [Test]
         public void It_Should_Tell_The_Player_The_Position_Is_Occupied()
         {
+            //Arrange
             var game = new Game();
+
+            //Act
             game.ChoosePosition(2);
             string message = game.ChoosePosition(1);
+
+            //Assert
             Assert.AreEqual("That spot is taken!", message);
         }
     }
