@@ -46,16 +46,7 @@ namespace TicTacToe
         private bool WinningPlayerIs(char player)
         {
             var layout = GetLayoutFor(player);
-
-            foreach (string pattern in _winningPatterns)
-            {
-                if (Regex.IsMatch(layout, pattern))
-                {
-                    return true;
-                }  
-            }
-
-            return false;
+            return _winningPatterns.Any(pattern => Regex.IsMatch(layout, pattern));
         }
 
         private string GetLayoutFor(char player)
