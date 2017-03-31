@@ -21,7 +21,11 @@ namespace TicTacToe
             {
                 return "Player wins!";
             }
-                
+
+            if (new string(_layout.ToArray()).StartsWith("OOO"))
+            {
+                return "Game wins.";
+            }
 
             return string.Empty;
         }
