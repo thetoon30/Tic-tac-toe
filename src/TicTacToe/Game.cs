@@ -18,7 +18,10 @@ namespace TicTacToe
             _layout[firstUnoccupied] = 'O';
 
             if (new string(_layout.ToArray()).StartsWith("XXX"))
+            {
                 return "Player wins!";
+            }
+                
 
             return string.Empty;
         }
