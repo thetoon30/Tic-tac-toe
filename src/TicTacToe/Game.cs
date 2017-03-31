@@ -23,6 +23,18 @@ namespace TicTacToe
                                                      "..X.X.X..",
                                                  };
 
+        readonly string[] _winningOPatterns = new[]
+                                                  {
+                                                      "OOO......",
+                                                      "...OOO...",
+                                                      "......OOO",
+                                                      "O..O..O..",
+                                                      ".O..O..O.",
+                                                      "..O..O..O",
+                                                      "O...O...O",
+                                                      "..O.O.O..",
+                                                  };
+
         public string ChoosePosition(int position)
         {
             _layout[position - 1] = 'X';
@@ -35,13 +47,19 @@ namespace TicTacToe
             foreach (string pattern in _winningXPatterns)
             {
                 if (Regex.IsMatch(layoutAsString, pattern))
+                {
                     return "Player wins!";
+                }   
             }
 
-            if (new string(_layout.ToArray()).StartsWith("OOO"))
+            foreach (string pattern in _winningOPatterns)
             {
-                return "Game wins.";
+                if (Regex.IsMatch(layoutAsString, pattern))
+                {
+                    return "Game wins.";
+                }   
             }
+
 
             return string.Empty;
         }
