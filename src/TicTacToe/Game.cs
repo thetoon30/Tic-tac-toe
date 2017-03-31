@@ -25,6 +25,11 @@ namespace TicTacToe
 
         public string ChoosePosition(int position)
         {
+            if (_layout[position - 1] != '\0')
+            {
+                return "That spot is taken!";
+            }
+
             _layout[position - 1] = 'X';
             int firstUnoccupied = Enumerable.Range(0, _layout.Length)
                                             .First(p => _layout[p].Equals('\0'));
