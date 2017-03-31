@@ -11,12 +11,13 @@ namespace TicTacToe.Tests
         public void It_Should_Tell_The_Player_The_Position_Is_Invalid()
         {
             //Arrange
-
+            var game = new Game();
 
             //Act
-
+            string message = game.ChoosePosition(10);
 
             //Assert
+            Assert.AreEqual("That spot is invalid!", message);
         }
     }
 }
