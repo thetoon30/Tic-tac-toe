@@ -11,29 +11,17 @@ namespace TicTacToe
     {
         char[] _layout = new char[9];
 
-        readonly string[] _winningXPatterns = new[]
+        readonly string[] _winningPatterns = new[]
                                                  {
-                                                     "XXX......",
-                                                     "...XXX...",
-                                                     "......XXX",
-                                                     "X..X..X..",
-                                                     ".X..X..X.",
-                                                     "..X..X..X",
-                                                     "X...X...X",
-                                                     "..X.X.X..",
+                                                     "[XO][XO][XO]......",
+                                                     "...[XO][XO][XO]...",
+                                                     "......[XO][XO][XO]",
+                                                     "[XO]..[XO]..[XO]..",
+                                                     ".[XO]..[XO]..[XO].",
+                                                     "..[XO]..[XO]..[XO]",
+                                                     "[XO]...[XO]...[XO]",
+                                                     "..[XO].[XO].[XO]..",
                                                  };
-
-        readonly string[] _winningOPatterns = new[]
-                                                  {
-                                                      "OOO......",
-                                                      "...OOO...",
-                                                      "......OOO",
-                                                      "O..O..O..",
-                                                      ".O..O..O.",
-                                                      "..O..O..O",
-                                                      "O...O...O",
-                                                      "..O.O.O..",
-                                                  };
 
         public string ChoosePosition(int position)
         {
@@ -42,9 +30,9 @@ namespace TicTacToe
                                             .First(p => _layout[p].Equals('\0'));
             _layout[firstUnoccupied] = 'O';
 
-            var layoutAsString = new string(_layout);
+            string layoutAsString = new string(_layout).Replace('O', '\0');
 
-            foreach (string pattern in _winningXPatterns)
+            foreach (string pattern in _winningPatterns)
             {
                 if (Regex.IsMatch(layoutAsString, pattern))
                 {
@@ -52,7 +40,9 @@ namespace TicTacToe
                 }   
             }
 
-            foreach (string pattern in _winningOPatterns)
+            layoutAsString = new string(_layout).Replace('X', '\0');
+
+            foreach (string pattern in _winningPatterns)
             {
                 if (Regex.IsMatch(layoutAsString, pattern))
                 {
