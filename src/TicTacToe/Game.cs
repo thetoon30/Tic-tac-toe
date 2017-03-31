@@ -45,21 +45,16 @@ namespace TicTacToe
 
         private bool WinningPlayerIs(char player)
         {
-            var layout = new string(_layout);
-
-            if (player == 'X')
-            {
-                layout = layout.Replace('O', '\0');
-            } 
-            else
-            {
-                layout = layout.Replace('X', '\0');
-            }
+            var layout = new string(_layout.ToList()
+                                        .Select(c => (c.Equals(player)) ? player : '\0')
+                                        .ToArray());
 
             foreach (string pattern in _winningPatterns)
             {
                 if (Regex.IsMatch(layout, pattern))
+                {
                     return true;
+                }  
             }
 
             return false;
