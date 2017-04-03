@@ -58,7 +58,8 @@ namespace TicTacToe
 
         public void GoFirst()
         {
-            SelectAPositionFor('X');
+            char token = GetTokenFor("game");
+            SelectAPositionFor(token);
         }
 
         private bool WinningPlayerIs(char player)
@@ -84,6 +85,11 @@ namespace TicTacToe
             int firstUnoccupied = Enumerable.Range(0, _layout.Length)
                 .First(p => _layout[p].Equals('\0'));
             _layout[firstUnoccupied] = value;
+        }
+
+        private char GetTokenFor(string player)
+        {
+            return 'X';
         }
     }
 }
