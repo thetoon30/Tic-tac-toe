@@ -78,7 +78,9 @@ namespace TicTacToe
 
         public void GoFirst()
         {
-            _layout[0] = 'X';
+            int firstUnoccupied = Enumerable.Range(0, _layout.Length)
+                                         .First(p => _layout[p].Equals('\0'));
+            _layout[firstUnoccupied] = 'X';
         }
     }
 }
