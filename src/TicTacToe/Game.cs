@@ -78,7 +78,7 @@ namespace TicTacToe
 
         public void GoFirst()
         {
-
+            _layout[0] = 'X';
         }
     }
 }
