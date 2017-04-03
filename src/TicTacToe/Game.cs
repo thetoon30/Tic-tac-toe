@@ -60,9 +60,7 @@ namespace TicTacToe
 
         public void GoFirst()
         {
-            int firstUnoccupied = Enumerable.Range(0, _layout.Length)
-                                         .First(p => _layout[p].Equals('\0'));
-            _layout[firstUnoccupied] = 'X';
+            SelectAPositionFor('X');
         }
 
         private bool WinningPlayerIs(char player)
@@ -81,6 +79,13 @@ namespace TicTacToe
         private bool IsOutOfRange(int position)
         {
             return position > _layout.Count();
+        }
+
+        private void SelectAPositionFor(char value)
+        {
+            int firstUnoccupied = Enumerable.Range(0, _layout.Length)
+                .First(p => _layout[p].Equals('\0'));
+            _layout[firstUnoccupied] = value;
         }
     }
 }
