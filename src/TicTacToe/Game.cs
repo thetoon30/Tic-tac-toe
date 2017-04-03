@@ -53,6 +53,18 @@ namespace TicTacToe
             return string.Empty;
         }
 
+        public char GetPosition(int position)
+        {
+            return _layout[position - 1];
+        }
+
+        public void GoFirst()
+        {
+            int firstUnoccupied = Enumerable.Range(0, _layout.Length)
+                                         .First(p => _layout[p].Equals('\0'));
+            _layout[firstUnoccupied] = 'X';
+        }
+
         private bool WinningPlayerIs(char player)
         {
             var layout = GetLayoutFor(player);
@@ -68,19 +80,7 @@ namespace TicTacToe
 
         private bool IsOutOfRange(int position)
         {
-            return position  > _layout.Count();
-        }
-
-        public char GetPosition(int position)
-        {
-            return _layout[position - 1];
-        }
-
-        public void GoFirst()
-        {
-            int firstUnoccupied = Enumerable.Range(0, _layout.Length)
-                                         .First(p => _layout[p].Equals('\0'));
-            _layout[firstUnoccupied] = 'X';
+            return position > _layout.Count();
         }
     }
 }
