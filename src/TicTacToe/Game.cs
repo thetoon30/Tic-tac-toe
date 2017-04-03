@@ -36,9 +36,7 @@ namespace TicTacToe
             }
 
             _layout[position - 1] = 'X';
-            int firstUnoccupied = Enumerable.Range(0, _layout.Length)
-                                            .First(p => _layout[p].Equals('\0'));
-            _layout[firstUnoccupied] = 'O';
+            SelectAPositionFor('O');
 
             if (WinningPlayerIs('X'))
             {
