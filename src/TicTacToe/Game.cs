@@ -25,6 +25,11 @@ namespace TicTacToe
 
         public string ChoosePosition(int position)
         {
+            if (position > 9)
+            {
+                return "That spot is invalid!";
+            }
+
             if (_layout[position - 1] != '\0')
             {
                 return "That spot is taken!";
