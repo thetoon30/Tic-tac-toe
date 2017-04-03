@@ -58,5 +58,16 @@ namespace TicTacToe.Tests
             //Assert
             Assert.IsTrue(gamePositionFound);
         }
+
+        [Test]
+        public void It_Should_Put_An_X_In_One_Of_The_Available_Positions()
+        {
+            //Arrange
+
+            //Act
+            
+
+            //Assert
+        }
     }
 }
