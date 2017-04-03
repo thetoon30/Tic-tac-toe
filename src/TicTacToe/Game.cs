@@ -25,7 +25,7 @@ namespace TicTacToe
 
         public string ChoosePosition(int position)
         {
-            if (position > 9)
+            if (IsOutOfRange(position))
             {
                 return "That spot is invalid!";
             }
@@ -64,6 +64,11 @@ namespace TicTacToe
             return new string(_layout.ToList()
                                   .Select(c => (c.Equals(player)) ? player : '\0')
                                   .ToArray());
+        }
+
+        private bool IsOutOfRange(int position)
+        {
+            return position  > _layout.Count();
         }
 
         public char GetPosition(int position)
