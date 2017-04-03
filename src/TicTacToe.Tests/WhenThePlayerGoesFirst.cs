@@ -63,11 +63,14 @@ namespace TicTacToe.Tests
         public void It_Should_Put_An_X_In_One_Of_The_Available_Positions()
         {
             //Arrange
+            var game = new Game();
 
             //Act
-            
+            game.GoFirst();
 
             //Assert
+            Assert.IsTrue(Enumerable.Range(1, 9)
+                .Any(position => game.GetPosition(position).Equals('X')));
         }
     }
 }

@@ -75,5 +75,10 @@ namespace TicTacToe
         {
             return _layout[position - 1];
         }
+
+        public void GoFirst()
+        {
+
+        }
     }
 }
